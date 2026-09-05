@@ -1,0 +1,34 @@
+# Runtime data -- created locally by ConfigStore/license_core when running
+# in dev mode (not frozen), where _install_dir() resolves to the project
+# root. Contains real broker credentials and license/contact info once
+# anyone actually uses the app -- must never be committed.
+tradesuite_settings.json
+ts_license.json
+licensing/TS_Customers.csv
+output/
+logs/
+
+# OpenAlgo, fetched fresh per-install by openalgo_bootstrap.py -- not
+# TradeSuite's own source, and its own .env holds real broker secrets
+# once configured. Never vendor this into the repo.
+openalgo_runtime/
+python_runtime/
+
+# PyInstaller build artifacts
+build/
+dist/
+installer/dist_customer/
+installer/build_customer/
+installer/Output/
+*.spec.bak
+
+# Real embedded mail-relay credentials (obfuscated, not encrypted -- see
+# licensing/server_config.py's own comment). Generated locally by
+# installer/embed_server_config.py from a secrets file kept OUTSIDE this
+# repo. Missing this file is a supported, safe state (server_config.py
+# catches the ImportError) -- it just means the relay is disabled, which
+# is correct for a fresh clone until embed_server_config.py is re-run.
+licensing/_server_blob.py
+
+__pycache__/
+*.pyc
